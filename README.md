@@ -1,9 +1,11 @@
 ## Easy Monads in Java 8
 * [Either Monad](/core/src/main/java/com/easy/monads/Either.java)
-* WIP: Writer Monad
+* [Writer Monad](/core/src/main/java/com/easy/monads/Writer.java)
+* WIP: Reader Monad
 
 #### Example Usage
 * [Either Examples](/examples/src/main/java/com/easy/monads/examples/EitherExamples.java)
+* [Writer Examples](/examples/src/main/java/com/easy/monads/examples/WriterExamples.java)
 
 ## How to add dependency
 ```
