@@ -2,6 +2,10 @@ package com.easy.monads;
 
 /**
  * Created by raja on 1/30/17.
+ *
+ * <p>A Monoid with `mappend` and `mempty` behaviour to be emulated on object with type `M`
+ *    (an application tailored pojo)
+ * </p>
  */
 public interface Monoid<M> {
     /**
