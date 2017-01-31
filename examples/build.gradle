@@ -1,13 +1,17 @@
-version 'unspecified'
-
-apply plugin: 'java'
-
-sourceCompatibility = 1.5
+apply plugin: 'application'
 
 repositories {
     mavenCentral()
 }
 
+mainClassName = "com.easy.monads.examples.EitherExamples"
+
 dependencies {
+    compile project(':core')
+    compile 'com.squareup.okhttp3:okhttp:3.5.0'
+
+//    compile 'io.atlassian.fugue:fugue:4.3.0'
+//    compile group: 'com.jnape.palatable', name: 'lambda', version: '1.5.4'
+
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }

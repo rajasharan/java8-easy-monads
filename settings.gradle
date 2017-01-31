@@ -16,5 +16,5 @@ include 'services:webservice'
 */
 
 rootProject.name = 'java8-easy-monads'
+include 'core'
 include 'examples'
-
