@@ -34,13 +34,21 @@ public class EitherExamples {
         Either.<IOException, Builder>success(new Request.Builder())
                 .map(b -> b.url("http://www.mocky.io/v2/589014230f00005312a3efd5"))
                 .map(b -> b.header("Accept", "application/json"))
-                .map(b -> b.build())
+                .flatMap(b -> build(b))
                 .map(req -> new OkHttpClient().newCall(req))
                 .flatMap(call -> execute(call))
                 .peek(System.out::println, System.out::println)
                 .map(res -> res.body())
                 .flatMap(body -> string(body))
                 .peek(System.out::println, System.out::println);
+    }
+
+    private static Either<IOException, Request> build(Builder builder) {
+        try {
+            return Either.success(builder.build());
+        } catch (Exception e) {
+            return Either.error(new IOException(e.getLocalizedMessage()));
+        }
     }
 
     private static Either<IOException, Response> execute(Call call) {
