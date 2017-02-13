@@ -12,7 +12,7 @@ public class Writer<W, R> {
     private Monoid<W> m;
     private R result;
 
-    private Writer(R result, Monoid<W> m) {
+    protected Writer(R result, Monoid<W> m) {
         this.result = result;
         this.m = m;
     }

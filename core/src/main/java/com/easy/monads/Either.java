@@ -35,11 +35,11 @@ public class Either<L, R> {
     private L left;
     private R right;
 
-    private Either(L left, Class<R> nil) {
+    protected Either(L left, Class<R> nil) {
         this.left = left;
     }
 
-    private Either(Class<L> nil, R right) {
+    protected Either(Class<L> nil, R right) {
         this.right = right;
     }
 
