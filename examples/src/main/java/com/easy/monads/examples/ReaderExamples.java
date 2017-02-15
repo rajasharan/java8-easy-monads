@@ -41,9 +41,9 @@ public class ReaderExamples {
         Reader<String, Integer> reader =
                 Reader.<String>ask()
                         .map(config -> startVal)
-                        .flatMap(val -> Reader.create(config -> doubleOrSqr.apply(config, val)))
-                        .flatMap(val -> Reader.create(config -> doubleOrSqr.apply(config, val)))
-                        .flatMap(val -> Reader.create(config -> doubleOrSqr.apply(config, val)));
+                        .flatMap(val -> Reader.ask(config -> doubleOrSqr.apply(config, val)))
+                        .flatMap(val -> Reader.ask(config -> doubleOrSqr.apply(config, val)))
+                        .flatMap(val -> Reader.ask(config -> doubleOrSqr.apply(config, val)));
 
         int result1 = reader.run("square");
         int result2 = reader.run("double");
@@ -63,9 +63,9 @@ public class ReaderExamples {
         Reader<Function<Integer, Integer>, Integer> reader =
                 Reader.<Function<Integer, Integer>>ask()
                         .map(fn -> startVal)
-                        .flatMap(val -> Reader.create(fn -> fn.apply(val)))
-                        .flatMap(val -> Reader.create(fn -> fn.apply(val)))
-                        .flatMap(val -> Reader.create(fn -> fn.apply(val)));
+                        .flatMap(val -> Reader.ask(fn -> fn.apply(val)))
+                        .flatMap(val -> Reader.ask(fn -> fn.apply(val)))
+                        .flatMap(val -> Reader.ask(fn -> fn.apply(val)));
 
         int result1 = reader.run(squareNumber);
         int result2 = reader.run(doubleNumer);
